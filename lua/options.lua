@@ -1,6 +1,5 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
--- NOTE: You can change these options as you wish!
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -38,5 +37,19 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
+
+-- [[ Custom ]]
+-- Editor
+vim.o.relativenumber = true
+vim.o.wrap = false
+vim.o.incsearch = true
+vim.o.scrolloff = 8
+
+-- History
+vim.o.swapfile = false
+vim.o.backup = false
+vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.o.undofile = true
+vim.opt.isfname:append("@-@")
 
 -- vim: ts=2 sts=2 sw=2 et
