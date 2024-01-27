@@ -34,7 +34,7 @@ vim.keymap.set('i', '<C-l>', '<right>', { desc = 'Move right' })
 vim.keymap.set('i', '<C-c>', '<Esc>', { desc = 'This is going to get me cancelled --ThePrimeagen 2023' })
 
 -- toggle menus
-vim.keymap.set('n', '<leader>u', '<cmd> UndotreeShow <CR>', { desc = 'Toggles undotree window' })
+vim.keymap.set('n', '<leader>u', '<cmd> UndotreeToggle <CR>', { desc = 'Toggle undotree window' })
 vim.keymap.set('n', '<leader>e', '<cmd> Neotree toggle <CR>', { desc = 'Toggle file tree' })
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Show default vim file tree' })
 
@@ -50,7 +50,9 @@ vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Screen centred jump to previous sear
 vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Screen centred jump to next search term' })
 
 -- preserved deletion and pasting
-vim.keymap.set('x', '<leader>p', [["_dP]], { desc = 'Buffer preserved pasting' })
+vim.keymap.set('x', '<leader>p', [["_dP]], { desc = '???' })
+vim.keymap.set('n', '<leader>p', [["+p]], { desc = 'Paste from system clipboard' })
+vim.keymap.set('n', '<leader>P', [["+P]], { desc = 'Paste from system clipboard' })
 vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]], { desc = 'Yank to system clipboard' })
 vim.keymap.set('n', '<leader>Y', [["+Y]], { desc = 'Yank to system clipboard' })
 vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]], { desc = 'Buffer preserved deletion' })
@@ -61,7 +63,8 @@ vim.keymap.set('n', 'Q', '<nop>', { desc = 'Disabled' })
 -- utilities
 vim.keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>', { desc = '' })
 vim.keymap.set('n', '<leader>fm', vim.lsp.buf.format, { desc = 'Formats document' })
-vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Search and replace' })
+vim.keymap.set('n', '<leader>sap', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+  { desc = 'Search and replace' })
 vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true, desc = 'Make file executable' })
 
 -- vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz', { desc = '' })
