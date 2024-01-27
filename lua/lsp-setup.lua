@@ -66,6 +66,8 @@ require('which-key').register({
 require('mason').setup()
 require('mason-lspconfig').setup()
 
+-- [[ Custom additions ]]
+
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
 --
@@ -74,7 +76,12 @@ require('mason-lspconfig').setup()
 --
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
-local servers = require "custom.config.lsp_servers"
+local servers = require 'custom.config.lsp_servers'
+
+-- add vim support for *.slint
+vim.cmd 'autocmd BufRead,BufNewFile *.slint set filetype=slint'
+
+-- [[ /Custom additions ]]
 
 -- Setup neovim lua configuration
 require('neodev').setup()

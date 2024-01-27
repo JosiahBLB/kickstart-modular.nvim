@@ -42,4 +42,7 @@ return {
 	-- spelling
 	marksman = {},
 	grammarly = {},
+
+	-- other
+	slint_lsp = {},
 }

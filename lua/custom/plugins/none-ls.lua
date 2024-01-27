@@ -23,7 +23,8 @@ return {
           -- 'clang-format',
           --
           -- -- cmake
-          -- 'cmake_lint',
+          'cmake_lint',
+          'cmakelang',
           --
           -- -- python
           -- 'pylint',
@@ -47,11 +48,12 @@ return {
         -- diagnostics.jsonlint,
         -- diagnostics.cpplint,
         -- diagnostics.pylint,
-        -- diagnostics.cmake_lint,
+        diagnostics.cmake_lint,
 
         -- formatting
         formatting.stylua,
         formatting.prettier,
+        formatting.cmake_format,
       }
       null_ls.setup { sources = sources }
     end,
