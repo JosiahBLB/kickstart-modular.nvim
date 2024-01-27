@@ -1,3 +1,29 @@
+## Joe's recommendations
+
+```bash
+# Required for this repo
+brew install nvim # Neovim
+brew install ripgrep # A better grep
+
+# Terminals inside terminals with
+# persistant sessions and custom layouts
+# multi window multi pane
+brew install tmux # Terminal emulator
+
+# Better build gen
+brew install ninja # Build tool
+
+# Rice yo term
+brew install glances # Dashboard
+brew install lsd # CLI graphical file tree
+
+# Other
+brew install pkg-config
+brew install node # Node.js
+brew install coreutils # GNU package
+```
+
+
 # kickstart-modular.nvim
 
 https://github.com/kdheepak/kickstart.nvim/assets/1813121/f3ff9a2b-c31f-44df-a4fa-8a0d7b17cf7b
