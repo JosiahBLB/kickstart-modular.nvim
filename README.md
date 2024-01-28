@@ -8,13 +8,13 @@ brew install ripgrep # A better grep
 ```
 
 ### Tmux
-Terminals inside terminals with persistant sessions and custom layouts multi window multi pane
+Terminals inside terminals with persistant sessions and custom layouts, multi window, multi pane.
 
 ```bash
 brew install tmux
 ```
 
-One of the plugins in this repo requires you to add the following to your ~/.config/tmux/tmux.config file
+One of the plugins in this repo requires you to add the following to your ~/.config/tmux/tmux.config file:
 
 ```bash
 # Smart pane switching with awareness of Vim splits.
@@ -55,7 +55,7 @@ brew install coreutils # GNU package
 
 ## C++ development
 
-A better build generator, used with cmake
+A better build generator, used with cmake.
 
 ```bash
 brew install ninja # Build tool
