@@ -1,13 +1,14 @@
 ## Joe's recommendations
 
-Required for this repo
+### Required for this repo
 
 ```bash
 brew install nvim # Neovim
 brew install ripgrep # A better grep
 ```
 
-Tmux: Terminals inside terminals with persistant sessions and custom layouts multi window multi pane
+### Tmux
+Terminals inside terminals with persistant sessions and custom layouts multi window multi pane
 
 ```bash
 brew install tmux
@@ -37,14 +38,14 @@ bind-key -T copy-mode-vi 'C-l' select-pane -R
 bind-key -T copy-mode-vi 'C-\' select-pane -l
 ```
 
-Terminal ricing
+### Terminal ricing
 
 ```bash
 brew install glances # Dashboard
 brew install lsd # CLI graphical file tree
 ```
 
-Others
+### Others
 
 ```bash
 brew install pkg-config
@@ -60,7 +61,7 @@ A better build generator, used with cmake
 brew install ninja # Build tool
 ```
 
-Note: This repo uses clangd which will determine formatting options for .cpp and .h files based on a .clang-format file.
+**Note:** This repo uses clangd which will determine formatting options for .cpp and .h files based on a .clang-format file.
 The first is a global default located in ${HOME}, the second is in your project directory. If neither of these exist you can generate this with my script:
 
 ```bash
