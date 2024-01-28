@@ -20,16 +20,15 @@ return {
 
           -- -- c/cpp
           -- 'cpplint',
-          -- 'clang-format',
-          --
+
           -- -- cmake
           'cmake_lint',
           'cmakelang',
-          --
-          -- -- python
+
+          -- python
           -- 'pylint',
-          --
-          -- -- data
+
+          -- data
           -- 'jsonlint',
         },
       },
