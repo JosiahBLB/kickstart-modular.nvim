@@ -1,6 +1,6 @@
 ## Joe's recommendations
 
-### Required for this repo
+### Required for this Repo
 
 ```bash
 brew install nvim # Neovim
@@ -8,13 +8,13 @@ brew install ripgrep # A better grep
 ```
 
 ### Tmux
-Terminals inside terminals with persistant sessions and custom layouts, multi window, multi pane.
+Terminals inside terminals with persistant sessions and custom layouts, multi-window, multi-pane.
 
 ```bash
 brew install tmux
 ```
 
-One of the plugins in this repo requires you to add the following to your ~/.config/tmux/tmux.config file:
+One of the plugins in this repo requires you to add the following to your ~/.config/tmux/tmux.config file. This is to allow for jumping between vim splits and tmux panes:
 
 ```bash
 # Smart pane switching with awareness of Vim splits.
@@ -38,7 +38,7 @@ bind-key -T copy-mode-vi 'C-l' select-pane -R
 bind-key -T copy-mode-vi 'C-\' select-pane -l
 ```
 
-### Terminal ricing
+### Terminal Ricing
 
 ```bash
 brew install glances # Dashboard
@@ -53,7 +53,7 @@ brew install node # Node.js
 brew install coreutils # GNU package
 ```
 
-## C++ development
+## C++ Development
 
 A better build generator, used with cmake.
 
