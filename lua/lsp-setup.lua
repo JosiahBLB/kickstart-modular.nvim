@@ -77,6 +77,7 @@ require('mason-lspconfig').setup()
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = require 'custom.config.lsp_servers'
+-- require('lspconfig').ccls.setup {} -- TODO: you will have to manually install this
 
 -- add vim support for *.slint
 vim.cmd 'autocmd BufRead,BufNewFile *.slint set filetype=slint'
