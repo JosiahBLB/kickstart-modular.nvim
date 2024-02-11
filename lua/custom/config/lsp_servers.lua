@@ -12,7 +12,7 @@ return {
 	-- gopls = {}, -- trouble installing
 
 	-- python
-	pyright = {},
+	jedi_language_server = {},
 	ruff_lsp = {},
 
 	-- rust
