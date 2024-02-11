@@ -25,13 +25,26 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- basic bitch bindings
 vim.keymap.set({ 'n', 'v', 'i' }, '<C-s>', '<cmd>w<CR>', { desc = 'Save file' })
+-- pasting
+vim.keymap.set('x', '<leader>p', [["_dP]], { desc = '???' })
+vim.keymap.set('n', '<leader>p', [[""p]], { desc = 'Paste from vim clipboard' })
+vim.keymap.set('n', '<leader>P', [[""P]], { desc = 'Paste from vim clipboard' })
+vim.keymap.set('n', 'p', [["+p]], { desc = 'Paste from system clipboard' })
+vim.keymap.set('n', 'P', [["+P]], { desc = 'Paste from system clipboard' })
+-- copying
+vim.keymap.set({ 'n', 'v' }, '<C-c>', [["+y]], { desc = 'Yank to system clipboard' })
+vim.keymap.set({ 'n', 'v' }, 'y', [["+y]], { desc = 'Yank to system clipboard' })
+vim.keymap.set('n', 'Y', [["+Y]], { desc = 'Yank to system clipboard' })
+vim.keymap.set('n', '<leader>Y', [[""Y]], { desc = 'Yank to vim clipboard' })
+vim.keymap.set({ 'n', 'v' }, '<leader>y', [[""y]], { desc = 'Yank to vim clipboard' })
+-- deletion
+vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]], { desc = 'buffer preserved deletion' })
 
 -- insert mode movement
 vim.keymap.set('i', '<C-k>', '<up>', { desc = 'Move up' })
 vim.keymap.set('i', '<C-j>', '<down>', { desc = 'Move down' })
 vim.keymap.set('i', '<C-h>', '<left>', { desc = 'Move left' })
 vim.keymap.set('i', '<C-l>', '<right>', { desc = 'Move right' })
-vim.keymap.set('i', '<C-c>', '<Esc>', { desc = 'This is going to get me cancelled --ThePrimeagen 2023' })
 
 -- toggle menus
 vim.keymap.set('n', '<leader>u', '<cmd> UndotreeToggle <CR>', { desc = 'Toggle undotree window' })
@@ -49,27 +62,13 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Screen centred half page jump 
 vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Screen centred jump to previous search term' })
 vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Screen centred jump to next search term' })
 
--- preserved deletion and pasting
-vim.keymap.set('x', '<leader>p', [["_dP]], { desc = '???' })
-vim.keymap.set('n', '<leader>p', [["+p]], { desc = 'Paste from system clipboard' })
-vim.keymap.set('n', '<leader>P', [["+P]], { desc = 'Paste from system clipboard' })
-vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]], { desc = 'Yank to system clipboard' })
-vim.keymap.set('n', '<leader>Y', [["+Y]], { desc = 'Yank to system clipboard' })
-vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]], { desc = 'Buffer preserved deletion' })
-
 -- disabled
 vim.keymap.set('n', 'Q', '<nop>', { desc = 'Disabled' })
 
 -- utilities
-vim.keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>', { desc = '' })
-vim.keymap.set('n', '<leader>fm', vim.lsp.buf.format, { desc = 'Formats document' })
+vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { desc = '[f]ormat document' })
 vim.keymap.set('n', '<leader>sap', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-  { desc = 'Search and replace' })
-vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true, desc = 'Make file executable' })
-
--- vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz', { desc = '' })
--- vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz', { desc = '' })
--- vim.keymap.set('n', '<leader>k', '<cmd>lnext<CR>zz', { desc = '' })
--- vim.keymap.set('n', '<leader>j', '<cmd>lprev<CR>zz', { desc = '' })
+  { desc = '[s]earch [a]nd [r]eplace' })
+vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true, desc = 'Make file e[x]ecutable' })
 
 -- vim: ts=2 sts=2 sw=2 et
