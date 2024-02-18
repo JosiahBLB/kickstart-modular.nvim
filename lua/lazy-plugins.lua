@@ -57,7 +57,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',  opts = {} },
+  { 'folke/which-key.nvim',   opts = {} },
 
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
@@ -168,11 +168,21 @@ require('lazy').setup({
     },
   },
 
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
-
-  -- Fuzzy Finder (files, lsp, etc)
   {
+    -- Allows for commenting out text based on the language
+    'numToStr/Comment.nvim',
+    opts = {
+      mappings = {
+        ---Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
+        basic = false,
+        ---Extra mapping; `gco`, `gcO`, `gcA`
+        extra = false,
+      },
+    },
+  },
+
+  {
+    -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
     dependencies = {
@@ -189,6 +199,39 @@ require('lazy').setup({
           return vim.fn.executable 'make' == 1
         end,
       },
+      'MunifTanjim/nui.nvim',
+      'nvim-telescope/telescope-ui-select.nvim',
+    },
+  },
+
+  {
+    -- Telescope: File browser
+    'nvim-telescope/telescope-file-browser.nvim',
+    dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
+  },
+
+  {
+    -- Telescope: Launch tabs from fuzzily found firefox bookmarks
+    'dhruvmanila/browser-bookmarks.nvim',
+    opts = {
+      selected_browser = 'firefox',
+    },
+    dependencies = {
+      -- Only if your selected browser is Firefox, Waterfox or buku
+      'kkharji/sqlite.lua',
+
+      -- Only if you're using the Telescope extension
+      'nvim-telescope/telescope.nvim',
+    },
+  },
+
+  {
+    -- Telescope: Yank history
+    'AckslD/nvim-neoclip.lua',
+    opts = {},
+    requires = {
+      { 'kkharji/sqlite.lua', module = 'sqlite' },
+      'nvim-telescope/telescope.nvim',
     },
   },
 

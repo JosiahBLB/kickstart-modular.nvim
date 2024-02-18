@@ -4,7 +4,7 @@
 return {
   {
     'nvimtools/none-ls.nvim',
-    dependancies = {
+    dependencies = {
       {
         -- Download linters and formatters
         -- Install as required, some lsp's handle this

@@ -1,6 +1,7 @@
 -- [[ Lsp-config ]]
 -- see: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
+-- Mason will automatically install packages defined here
 return {
 	-- c++
 	clangd = {},

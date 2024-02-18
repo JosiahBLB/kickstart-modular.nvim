@@ -48,7 +48,6 @@ vim.keymap.set('i', '<C-l>', '<right>', { desc = 'Move right' })
 
 -- toggle menus
 vim.keymap.set('n', '<leader>u', '<cmd> UndotreeToggle <CR>', { desc = 'Toggle undotree window' })
-vim.keymap.set('n', '<leader>e', '<cmd> Neotree toggle <CR>', { desc = 'Toggle file tree' })
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Show default vim file tree' })
 
 -- visual mode selection movement
@@ -56,19 +55,27 @@ vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selection down' })
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selection up' })
 
 -- basic improvements
+vim.keymap.set('n', '<leader>q', '<cmd>bd<cr>', { desc = 'Close current buffer' })
 vim.keymap.set('n', 'J', 'mzJ`z', { desc = 'Append below to current line with static cursor' })
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Screen centred half page jump down' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Screen centred half page jump up' })
 vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Screen centred jump to previous search term' })
 vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Screen centred jump to next search term' })
 
+-- Comment.nvim (taken from nvchad)
+vim.keymap.set('n', '<leader>/', function()
+  require('Comment.api').toggle.linewise.current()
+end, { desc = 'Toggle Comment' })
+vim.keymap.set('v', '<leader>/', '<ESC><cmd>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>',
+  { desc = 'Toggle Comment' })
+
 -- disabled
 vim.keymap.set('n', 'Q', '<nop>', { desc = 'Disabled' })
 
 -- utilities
-vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { desc = '[f]ormat document' })
+vim.keymap.set('n', '<leader>fm', vim.lsp.buf.format, { desc = '[f]or[m]at document' })
 vim.keymap.set('n', '<leader>sap', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
   { desc = '[s]earch [a]nd [r]eplace' })
-vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true, desc = 'Make file e[x]ecutable' })
+vim.keymap.set('n', '<leader>mx', '<cmd>!chmod +x %<CR>', { silent = true, desc = '[m]ake file e[x]ecutable' })
 
 -- vim: ts=2 sts=2 sw=2 et
