@@ -1,3 +1,18 @@
+-- [[ Helper functions/variables ]]
+
+local compact = require('telescope.themes').get_cursor { previewer = false }
+local builtin = require 'telescope.builtin'
+
+local function run_picker_in_mode(picker, mode)
+  if mode == 'i' then
+    return '<cmd>Telescope ' .. picker .. '<CR>'
+  elseif mode == 'n' then
+    return '<cmd>Telescope ' .. picker .. '<CR><Esc>'
+    -- or:
+    -- return '<cmd>lua require("telescope.builtin").' .. picker .. '({ inital_mode = "' .. mode .. '" })<CR>'
+  end
+end
+
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
@@ -80,9 +95,24 @@ vim.keymap.set('n', '<leader>mx', '<cmd>!chmod +x %<CR>', { silent = true, desc 
 -- Oil
 vim.keymap.set('n', '<leader>E', '<cmd>Oil --float .<CR>', { desc = 'Open file explorer in oil' })
 
+-- Telescope
+vim.keymap.set('n', '<leader>ff', run_picker_in_mode('find_files', 'i'), { desc = '[f]ind [f]iles' })
+vim.keymap.set('n', '<leader>fg', run_picker_in_mode('live_grep', 'i'), { desc = '[f]ind by [g]rep' })
+vim.keymap.set('n', '<leader>fh', run_picker_in_mode('help_tags', 'i'), { desc = '[f]ind [h]elp tags' })
+vim.keymap.set('n', '<leader>fb', run_picker_in_mode('bookmarks', 'i'), { desc = '[f]ind [b]ookmarks' })
+vim.keymap.set('n', '<leader>fd', run_picker_in_mode('diagnostics', 'n'), { desc = '[f]ind [d]iagnostics' })
+vim.keymap.set('n', '<leader>b', run_picker_in_mode('buffers', 'n'), { desc = '[b]uffers' })
+vim.keymap.set('n', '<leader>fr', run_picker_in_mode('oldfiles', 'n'), { desc = '[f]ind [r]ecent file' })
+vim.keymap.set('n', '<leader>fc', run_picker_in_mode('neoclip', 'n'), { desc = '[f]ind [c]lipboard history' })
+vim.keymap.set('n', '<leader>e', run_picker_in_mode('file_browser path=%:p:h select_buffer=true', 'n'),
+  { noremap = true, desc = 'Open file browser' })
 
 vim.keymap.set('n', '<leader>rf', function()
   require('runner').run_file()
 end, { desc = '[r]un [f]ile' })
+
+vim.keymap.set('n', '<leader>fw', function()
+  builtin.current_buffer_fuzzy_find(compact)
+end, { desc = 'fuzzily [f]ind [w]ord in current buffer' })
 
 -- vim: ts=2 sts=2 sw=2 et

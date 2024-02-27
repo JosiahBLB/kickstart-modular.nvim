@@ -2,7 +2,6 @@
 -- See `:help telescope` and `:help telescope.setup()`
 local builtin = require 'telescope.builtin'
 local telescope = require 'telescope'
-local themes = require 'telescope.themes'
 
 pcall(telescope.load_extension, 'fzf')
 pcall(telescope.load_extension, 'file_browser')
@@ -52,6 +51,9 @@ require('neoclip').setup { -- yank history
   enable_persistent_history = true,
 }
 
+require('cheatsheet').setup { -- cheatsheet
+}
+
 ---@diagnostic disable-next-line: missing-fields
 require('browser_bookmarks').setup {
   -- override default configuration values
@@ -60,25 +62,29 @@ require('browser_bookmarks').setup {
   config_dir = '/Users/josiah/Library/Application Support/Firefox/Profiles/lxlc86f3.default-release-1',
 }
 
--- See `:help telescope.builtin`
--- [[ Essential Bindings ]]
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[f]ind [f]iles' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = '[f]ind by [g]rep' })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[f]ind [h]elp tags' })
-vim.keymap.set('n', '<leader>fb', telescope.extensions.bookmarks.bookmarks, { desc = '[f]ind [b]ookmarks' })
-vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[f]ind [d]iagnostics' })
-vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = '[b]uffers' })
-vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = '[f]ind [r]ecent file' })
-vim.keymap.set('n', '<leader>fc', telescope.extensions.neoclip.default, { desc = '[f]ind [c]lipboard history' })
-vim.keymap.set('n', '<leader>e', telescope.extensions.file_browser.file_browser,
-  { noremap = true, desc = 'Open file browser' })
-
-local compact = themes.get_cursor { previewer = false }
-vim.keymap.set('n', '<leader>fw', function()
-  builtin.current_buffer_fuzzy_find(compact)
-end, { desc = 'fuzzily [f]ind [w]ord in current buffer' })
-
 -- [[ disabled ]]
+-- local harpoon = require 'harpoon'
+-- harpoon:setup {}
+--
+-- -- basic telescope configuration
+-- local conf = require('telescope.config').values
+-- vim.api.nvim_create_user_command('HarpoonToggle', function()
+--   local file_paths = {}
+--   for _, item in ipairs(harpoon:list().items) do
+--     table.insert(file_paths, item.value)
+--   end
+--
+--   require('telescope.pickers')
+--   .new({}, {
+--     prompt_title = 'Harpoon',
+--     finder = require('telescope.finders').new_table {
+--       results = file_paths,
+--     },
+--     previewer = conf.file_previewer {},
+--     sorter = conf.generic_sorter {},
+--   })
+--   :find()
+-- end, {})
 --
 -- -- Telescope live_grep in git root
 -- -- Function to find the git root directory based on the current buffer's path

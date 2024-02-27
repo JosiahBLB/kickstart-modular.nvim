@@ -46,4 +46,5 @@ return {
 
 	-- other
 	slint_lsp = {},
+	matlab_ls = {},
 }
