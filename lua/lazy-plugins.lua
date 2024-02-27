@@ -229,7 +229,7 @@ require('lazy').setup({
     -- Telescope: Yank history
     'AckslD/nvim-neoclip.lua',
     opts = {},
-    requires = {
+    dependencies = {
       { 'kkharji/sqlite.lua', module = 'sqlite' },
       'nvim-telescope/telescope.nvim',
     },

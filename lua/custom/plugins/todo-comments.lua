@@ -1,3 +1,12 @@
+-- Enable highlighting for keywords:
+--  TODO: Example statement
+--  FIXME: Example statement
+--  HACK: Example statement
+--  WARN: Example statement
+--  PERF: Example statement
+--  NOTE: Example statement
+--  TEST: Example statement
+
 return {
   'folke/todo-comments.nvim',
   dependencies = { 'nvim-lua/plenary.nvim' },

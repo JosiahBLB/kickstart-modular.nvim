@@ -1,3 +1,5 @@
+-- Navigate between vim and tmux splits using the same keys
+
 return {
   'christoomey/vim-tmux-navigator',
   cmd = {
