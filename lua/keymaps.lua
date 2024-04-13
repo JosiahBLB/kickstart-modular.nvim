@@ -92,9 +92,6 @@ vim.keymap.set('n', '<leader>mx', '<cmd>!chmod +x %<CR>', { silent = true, desc 
 
 -- [[ Plugins ]]
 
--- Oil
-vim.keymap.set('n', '<leader>E', '<cmd>Oil --float .<CR>', { desc = 'Open file explorer in oil' })
-
 -- Telescope
 vim.keymap.set('n', '<leader>ff', run_picker_in_mode('find_files', 'i'), { desc = '[f]ind [f]iles' })
 vim.keymap.set('n', '<leader>fg', run_picker_in_mode('live_grep', 'i'), { desc = '[f]ind by [g]rep' })
@@ -104,15 +101,12 @@ vim.keymap.set('n', '<leader>fd', run_picker_in_mode('diagnostics', 'n'), { desc
 vim.keymap.set('n', '<leader>b', run_picker_in_mode('buffers', 'n'), { desc = '[b]uffers' })
 vim.keymap.set('n', '<leader>fr', run_picker_in_mode('oldfiles', 'n'), { desc = '[f]ind [r]ecent file' })
 vim.keymap.set('n', '<leader>fc', run_picker_in_mode('neoclip', 'n'), { desc = '[f]ind [c]lipboard history' })
-vim.keymap.set('n', '<leader>e', run_picker_in_mode('file_browser path=%:p:h select_buffer=true', 'n'),
-  { noremap = true, desc = 'Open file browser' })
-
-vim.keymap.set('n', '<leader>rf', function()
-  require('runner').run_file()
-end, { desc = '[r]un [f]ile' })
 
 vim.keymap.set('n', '<leader>fw', function()
   builtin.current_buffer_fuzzy_find(compact)
 end, { desc = 'fuzzily [f]ind [w]ord in current buffer' })
+
+-- NvimTree
+vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle<CR>', { desc = 'Open file browser' })
 
 -- vim: ts=2 sts=2 sw=2 et

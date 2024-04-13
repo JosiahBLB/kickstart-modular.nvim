@@ -51,8 +51,8 @@ vim.opt.smartindent = true
 -- History
 vim.o.swapfile = false
 vim.o.backup = false
-vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.o.undodir = os.getenv 'HOME' .. '/.vim/undodir'
 vim.o.undofile = true
-vim.opt.isfname:append("@-@")
+vim.opt.isfname:append '@-@'
 
 -- vim: ts=2 sts=2 sw=2 et

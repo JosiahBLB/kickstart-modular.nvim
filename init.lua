@@ -72,15 +72,5 @@ require 'lsp-setup'
 -- (completion)
 require 'cmp-setup'
 
--- [[ Configure oil ]]
--- (File system buffer edditing)
-require('oil').setup {
-  float = {
-    height = 0.94,
-    width = 0.86,
-    winblend = 10,
-  },
-}
-
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

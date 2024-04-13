@@ -10,27 +10,6 @@ return {
         -- Install as required, some lsp's handle this
         -- (lsp's are defined in lsp-config)
         'williamboman/mason.nvim',
-        ensure_installed = {
-
-          -- lua
-          'stylua',
-
-          -- web dev
-          'prettier',
-
-          -- -- c/cpp
-          -- 'cpplint',
-
-          -- -- cmake
-          'cmake_lint',
-          'cmakelang',
-
-          -- python
-          -- 'pylint',
-
-          -- data
-          -- 'jsonlint',
-        },
       },
     },
     opts = function()
