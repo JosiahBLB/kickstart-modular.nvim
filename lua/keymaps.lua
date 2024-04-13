@@ -8,8 +8,6 @@ local function run_picker_in_mode(picker, mode)
     return '<cmd>Telescope ' .. picker .. '<CR>'
   elseif mode == 'n' then
     return '<cmd>Telescope ' .. picker .. '<CR><Esc>'
-    -- or:
-    -- return '<cmd>lua require("telescope.builtin").' .. picker .. '({ inital_mode = "' .. mode .. '" })<CR>'
   end
 end
 

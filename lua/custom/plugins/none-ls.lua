@@ -13,7 +13,7 @@ return {
       },
     },
     opts = function()
-      -- Create vars for clarity
+      -- Create vars for readability
       local null_ls = require 'null-ls'
       local formatting = null_ls.builtins.formatting
       local diagnostics = null_ls.builtins.diagnostics
@@ -23,15 +23,14 @@ return {
         -- code actions
 
         -- diagnostics
-        -- diagnostics.jsonlint,
-        -- diagnostics.cpplint,
-        -- diagnostics.pylint,
         diagnostics.cmake_lint,
+        diagnostics.statix,
 
         -- formatting
         formatting.stylua,
         formatting.prettier,
         formatting.cmake_format,
+        formatting.nixpkgs_fmt,
       }
       null_ls.setup { sources = sources }
     end,

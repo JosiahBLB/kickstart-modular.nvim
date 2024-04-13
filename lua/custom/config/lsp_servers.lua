@@ -45,8 +45,8 @@ return {
 	grammarly = {},
 
 	-- other
-	slint_lsp = {},
+	slint_lsp = {}, -- slint a c++ ui framework
 	matlab_ls = {},
 	julials = {},
-	jdtls = {},
+	nil_ls = {}, -- nix declaritive system config
 }
